@@ -1,0 +1,6 @@
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/Algorithms/FCFS.java
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/Process.java
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/Algorithms/SJF.java
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/Algorithms/SRTF.java
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/ProcessScheduler.java
+/home/lab/NetBeansProjects/process-scheduler/src/main/java/com/mycompany/process/scheduler/Algorithms/RoundRobin.java

@@ -1,0 +1,6 @@
+com/mycompany/process/scheduler/Algorithms/SRTF.class
+com/mycompany/process/scheduler/ProcessScheduler.class
+com/mycompany/process/scheduler/Algorithms/RoundRobin.class
+com/mycompany/process/scheduler/Algorithms/SJF.class
+com/mycompany/process/scheduler/Algorithms/FCFS.class
+com/mycompany/process/scheduler/Process.class
