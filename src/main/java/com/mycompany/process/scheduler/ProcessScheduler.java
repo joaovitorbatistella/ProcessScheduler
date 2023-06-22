@@ -38,7 +38,7 @@ public class ProcessScheduler {
          ArrayList<Process> processes = new ArrayList<>();
         
         char input = 'Y'; 
-        while(input != 'N') {
+        while(input != 'N' && input != 'n') {
             int pid;
             String name;
             int priority;
