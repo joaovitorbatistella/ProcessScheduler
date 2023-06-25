@@ -10,31 +10,50 @@ import java.util.ArrayList;
 
 /**
  *
- * @author lab
+ * @author joaovitorbatistella
  */
 public class FCFS {
     
     public ArrayList<Process> processes;
-    public Response response;
     
     public FCFS(ArrayList<Process> processes) {
         this.processes = processes;
     }
     
-    public void handle() {
+    private float sumArrayList(ArrayList<Float> arr) {
+        float sum = 0;
+        for(int i = 0; i < arr.size(); i++) {
+            sum += arr.get(i);            
+        }
+        return sum;
+    }
+    
+    public Response handle(Response response) {
         
         float waiting_time = 0;
+        float algorith_runtime = 0;
+        ArrayList<Float> waiting_times = new ArrayList<>();
 
         int i=0;
+        ArrayList<Integer> order = new ArrayList<>();
         for (Process process : processes) {
-            this.response.execution_time += process.execution_time;
+            algorith_runtime += process.runtime;
+            order.add(process.pid);
+            response.runtime += process.runtime;
             if(i>0) {
-                waiting_time += processes.get(i-0).execution_time;
+                waiting_time += processes.get(i-1).runtime;
             }
+
+            response.addInProcessesRuntime(process.pid, algorith_runtime);
+            waiting_times.add(waiting_time);
             i++;
         }
         
-        this.response.average_waiting_time = waiting_time/processes.size();
+        response.setAverageWaitingTime(sumArrayList(waiting_times)/processes.size());
+        response.setOrder(order);
+        response.setAlgoritm("FCFS");
+        
+        return response;
     }
     
 }

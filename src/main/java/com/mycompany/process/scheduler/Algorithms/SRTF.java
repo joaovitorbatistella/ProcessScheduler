@@ -4,11 +4,12 @@
  */
 package com.mycompany.process.scheduler.Algorithms;
 
+import com.mycompany.process.scheduler.Response;
 import java.util.ArrayList;
 
 /**
  *
- * @author lab
+ * @author joaovitorbatistella
  */
 public class SRTF {
     public ArrayList<com.mycompany.process.scheduler.Process> processes;
@@ -17,7 +18,34 @@ public class SRTF {
         this.processes = processes;
     }
     
-    public void handle() {
+    private float sumArrayList(ArrayList<Float> arr) {
+        float sum = 0;
+        for(int i = 0; i < arr.size(); i++) {
+            sum += arr.get(i);            
+        }
+        return sum;
+    }
+    
+    public Response handle(Response response) {
         
+        float waiting_time = 0;
+        ArrayList<Float> waiting_times = new ArrayList<>();
+
+        int i=0;
+        ArrayList<Integer> order = new ArrayList<>();
+        for (com.mycompany.process.scheduler.Process process : processes) {
+            order.add(process.pid);
+            response.runtime += process.runtime;
+            if(i>0) {
+                waiting_time += processes.get(i-1).runtime;
+            }
+            waiting_times.add(waiting_time);
+            i++;
+        }
+        response.setAverageWaitingTime(sumArrayList(waiting_times)/processes.size());
+        response.setOrder(order);
+        response.setAlgoritm("FCFS");
+        
+        return response;
     }
 }
